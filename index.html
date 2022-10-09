@@ -6,12 +6,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .square {
+            width: 100px;
+            height: 100px;
+            margin: 10px 20px;
+            background-color:black;
+            display: inline-block;
+        }
+        .active {
+            background-color: green;
+        }
+        .error {
+            background-color: red;
+        }
+    </style>
 </head>
 
 <body>
     <div id="obj">
-        <input type="text" v-on:input="changeValue">
-        <p>{{ title }}</p>
+        <h1>Bấm nút tăng giá trị: {{ count }}</h1>
+        <button @click="TangGiaTri">Tăng</button>
+        <p v-on:mousemove="TinhToaDo">Tọa độ của chuột {{ x }} / {{ y }}</p>
+
+        <input v-model="vModel" placeholder="Nhập thông điệp">
+        <p>Thông điệp: {{ vModel }}</p>
+        <input v-model="vModel" placeholder="Nhập thông điệp">
+
+        <p>Gía trí A: {{ TangA }}</p>
+        <p>Gía trí B: {{ TangB }}</p>
+        <button @click="a++">TangA</button>
+        <button @click="b++">TangB</button>
+
+        <div class="square" @click=""></div>
+        <div class="square" :class="{ active: true, error: false }"></div>
+        <div class="square"></div>
+        <div v-for="(value, key) in items" class="square"></div>
+        
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10"></script>
     <script src="./main.js"></script>
